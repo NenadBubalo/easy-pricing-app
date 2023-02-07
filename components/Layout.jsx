@@ -13,6 +13,9 @@ import {
 } from '@chakra-ui/react'
 
 export default function Layout() {
+
+    const [slider, setSlider] = React.useState('50.00');
+
   return (
       <Box>
           {/* Layout */}
@@ -89,7 +92,7 @@ export default function Layout() {
                       position='absolute'
                       top={['75px']}
                   >
-                      <Slider aria-label='slider-ex-1' defaultValue={'50'}>
+                      <Slider aria-label='slider-ex-1' defaultValue={'50'} onChange={(val) => setSlider(val)}>
                           <SliderTrack bg={'#ECF0FB'}>
                               <SliderFilledTrack bg={'#A4F3EB'} />
                           </SliderTrack>
@@ -113,7 +116,7 @@ export default function Layout() {
                       justifyContent={'center'}
                   >
                       <Text color={'#293356'} fontSize={['32px']} fontWeight='800' paddingRight={'5px'}>
-                          $16.00
+                          ${slider}.00
                       </Text>
                       <Text fontSize={['14px']} color='#848EAD'>
                           /month
