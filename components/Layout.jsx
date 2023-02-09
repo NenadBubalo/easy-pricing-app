@@ -7,14 +7,27 @@ import {
     SliderTrack,
     SliderFilledTrack,
     SliderThumb,
-    SliderMark,
     Switch,
     Button,
+    useBoolean,
 } from '@chakra-ui/react'
+
 
 export default function Layout() {
 
-    const [slider, setSlider] = React.useState('50.00');
+    const [slider, setSlider] = React.useState(50);
+    const [proSlider, setProSlider] = React.useState(37.5);
+    const [checkbox, setCheckbox] = useBoolean();
+
+    function showPrice() {
+        if (checkbox === false) {
+            return slider.toFixed(2);
+        }
+        else {
+            return proSlider.toFixed(2);
+        }
+    }
+
 
   return (
       <Box>
@@ -92,7 +105,17 @@ export default function Layout() {
                       position='absolute'
                       top={['75px']}
                   >
-                      <Slider aria-label='slider-ex-1' defaultValue={'50'} onChange={(val) => setSlider(val)}>
+                      <Slider aria-label='slider-ex-1' defaultValue={50} onChange={(val) => {
+                          if (checkbox === true) {
+                              setProSlider(val - (val / 100 * 25));
+                              
+                          }
+                          else {
+                              setSlider(val);
+                          }
+                      }}
+                          
+                      >
                           <SliderTrack bg={'#ECF0FB'}>
                               <SliderFilledTrack bg={'#A4F3EB'} />
                           </SliderTrack>
@@ -116,7 +139,7 @@ export default function Layout() {
                       justifyContent={'center'}
                   >
                       <Text color={'#293356'} fontSize={['32px']} fontWeight='800' paddingRight={'5px'}>
-                          ${slider}.00
+                          ${showPrice()}
                       </Text>
                       <Text fontSize={['14px']} color='#848EAD'>
                           /month
@@ -141,7 +164,7 @@ export default function Layout() {
                           Monthly Billing
                       </Text>
 
-                      <Switch width={'43px'} height={'22px'} />
+                      <Switch width={'43px'} height={'22px'} onChange={setCheckbox.toggle} />
 
                       <Text
                           fontSize={'12px'}
