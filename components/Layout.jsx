@@ -21,6 +21,7 @@ export default function Layout() {
 
     function showPrice() {
         if (checkbox === false) {
+            
             return slider.toFixed(2);
         }
         else {
@@ -56,7 +57,7 @@ export default function Layout() {
 
                   {/* Text simple traffic Box */}
                   <Box
-                      width={['326px']}
+                      width={['326px', '326px', '326px', '523px']}
                       height={['81px']}
                       position='absolute'
                       top={['89px']}
@@ -66,49 +67,56 @@ export default function Layout() {
                       alignItems='center'
                       justifyContent={'space-between'}
                   >
-                      <Text fontSize={'20'} fontWeight='800' color={'#293356'}>
+                      <Text fontSize={['20px', '20px', '20px', '28px']} fontWeight='800' color={'#293356'}>
                           Simple, traffic-based pricing
                       </Text>
-                      <Text textAlign={'center'} fontSize={['13px']} color='#848EAD'>
-                          Sign-up for our 30-day trial. <br /> No credit card required.
-                      </Text>
+                      <Box display={'flex'} flexDirection={['column', 'column' ,'column', 'row']}>
+                          <Text textAlign={'center'} fontSize={['13px', '13px', '13px', '15px']} color='#848EAD'>
+                            Sign-up for our 30-day trial.
+                          </Text>
+                          <Text textAlign={'center'} fontSize={['13px', '13px', '13px', '15px']} color='#848EAD' marginLeft={['none', 'none', 'none', '5px']}>
+                            No credit card required.
+                          </Text>
+                      </Box>
                   </Box>
               </Box>
 
               {/* Pageview Box */}
               <Box
-                  width={['327px']}
-                  height={['478px']}
+                  width={['327px', '327px', '327px', '540px']}
+                  height={['478px', '478px', '478px', '397px']}
                   position='absolute'
                   top={['234px']}
                   backgroundColor='#ffffff'
                   boxShadow={'2xl'}
-                  display={['flex']}
+                  display={['flex', 'flex', 'flex', 'block']}
                   flexDirection={['column']}
                   alignItems={['center']}
                   color='#848EAD'
               >
                   <Text
-                      fontSize={['12px']}
+                      fontSize={['12px', '12px', '12px', '14px']}
                       textTransform='uppercase'
                       fontWeight={'800'}
                       position='absolute'
-                      top={['34px']}
+                      top={['34px', '34', '34', '58']}
+                      left={['none', 'none', 'none', '46px']}
                   >
                       100k pageviews
                   </Text>
 
                   {/* Slider Box */}
                   <Box
-                      width={['279px']}
+                      width={['279px', '279px', '279px', '444px']}
                       height={['40px']}
                       position='absolute'
-                      top={['75px']}
+                      top={['75px', '75px', '75px', '119px']}
+                      left={['none', 'none', 'none', '48px']}
                   >
                       <Slider aria-label='slider-ex-1' defaultValue={50} onChange={(val) => {
                           if (checkbox === true) {
                               setProSlider(val - (val / 100 * 25));
-                              
+                             
                           }
                           else {
                               setSlider(val);
@@ -116,7 +124,7 @@ export default function Layout() {
                       }}
                           
                       >
-                          <SliderTrack bg={'#ECF0FB'}>
+                          <SliderTrack bg={'#ECF0FB'} height={['8px']}>
                               <SliderFilledTrack bg={'#A4F3EB'} />
                           </SliderTrack>
                           <SliderThumb width={'35px'} height={'35px'}>
@@ -129,10 +137,11 @@ export default function Layout() {
                   
                   {/* Price Box */}
                   <Box
-                      width={['167px']}
-                      height={['44px']}
+                      width={['167px', '167px', '167px', '199px']}
+                      height={['44px', '44px', '44px', '55px']}
                       position={'absolute'}
-                      top={['139px']}
+                      top={['139px', '139px', '139px', '40px']}
+                      left={['none', 'none', 'none', '293px']}
                       display='flex'
                       flexDirection={'row'}
                       alignItems='center'
@@ -151,7 +160,8 @@ export default function Layout() {
                       width={['272px']}
                       height={['22']}
                       position={['absolute']}
-                      top={['217px']}
+                      top={['217px', '217px', '217px', '200px']}
+                      left={['none', 'none', 'none', '154px']}
                       display='flex'
                       flexDirection={'row'}
                       alignItems='center'
@@ -197,10 +207,10 @@ export default function Layout() {
                   {/* Dividing line */}
                   <Box
                       width={'100%'}
-                      height='1px'
+                      height='2px'
                       bg={'#ECF0FB'}
                       position='absolute'
-                      top={['277px']}
+                      top={['277px', '277px', '277px', '261px']}
                   />
 
                   {/* Description Box */}
@@ -208,7 +218,8 @@ export default function Layout() {
                       width={'148px'}
                       height={'71px'}
                       position='absolute'
-                      top={['302px']}
+                      top={['302px', '302px', '302px', '294px']}
+                      left={['none', 'none', 'none', '48px']}
                       display={'flex'}
                       flexDirection='column'
                       alignItems={'center'}
@@ -234,7 +245,8 @@ export default function Layout() {
                           width={'170px'}
                           height={['41px']}
                           position='absolute'
-                          top={['405px']}
+                          top={['405px', '405px', '405px', '309px']}
+                          left={['none', 'none', 'none', '326px']}
                           bg='#293356'
                           color={'#BECDFF'}
                           fontSize='12px'
